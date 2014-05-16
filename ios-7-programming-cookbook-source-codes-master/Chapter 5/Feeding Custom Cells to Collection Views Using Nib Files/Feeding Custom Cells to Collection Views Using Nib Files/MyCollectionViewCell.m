@@ -20,6 +20,13 @@
     return self;
 }
 
+- (void) awakeFromNib{
+    [super awakeFromNib];
+    //self.imageViewBackgroundImage.backgroundColor = [UIColor clearColor];
+    self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.bounds];
+    self.selectedBackgroundView.backgroundColor = [UIColor lightGrayColor];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

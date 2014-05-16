@@ -11,5 +11,7 @@
 @interface MyCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBackgroundImage;
+@property (weak, nonatomic) IBOutlet UILabel *NoteName;
+@property (weak, nonatomic) IBOutlet UILabel *NoteQualities;
 
 @end

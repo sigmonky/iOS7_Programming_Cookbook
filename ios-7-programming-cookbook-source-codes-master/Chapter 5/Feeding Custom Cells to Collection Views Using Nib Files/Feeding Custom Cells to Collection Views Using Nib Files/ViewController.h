@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UICollectionViewController
-
+    @property (nonatomic,strong) NSMutableArray *measureContent;
 @end

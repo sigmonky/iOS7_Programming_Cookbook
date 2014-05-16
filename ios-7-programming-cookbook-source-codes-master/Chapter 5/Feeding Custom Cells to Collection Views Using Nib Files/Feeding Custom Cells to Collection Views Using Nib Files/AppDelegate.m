@@ -16,11 +16,13 @@
     UICollectionViewFlowLayout *flowLayout =
     [[UICollectionViewFlowLayout alloc] init];
     
-    flowLayout.minimumLineSpacing = 20.0f;
-    flowLayout.minimumInteritemSpacing = 10.0f;
-    flowLayout.itemSize = CGSizeMake(80.0f, 120.0f);
+    flowLayout.minimumLineSpacing = 5.0f;
+    flowLayout.minimumInteritemSpacing = 5.0f;
+    flowLayout.itemSize = CGSizeMake(52.0f, 34.0f);
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    flowLayout.sectionInset = UIEdgeInsetsMake(10.0f, 20.0f, 10.0f, 20.0f);
+    flowLayout.sectionInset = UIEdgeInsetsMake(20.0f, 10.0f, 20.0f, 10.0f);
+   
+    
     
     return flowLayout;
 }

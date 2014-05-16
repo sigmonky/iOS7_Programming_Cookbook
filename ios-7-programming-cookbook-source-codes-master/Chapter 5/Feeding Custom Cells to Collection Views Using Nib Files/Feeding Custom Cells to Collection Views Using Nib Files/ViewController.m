@@ -52,18 +52,37 @@ static NSString *kCollectionViewCellIdentifier = @"Cells";
 - (void) viewDidLoad{
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    
+    self.measureContent = [NSMutableArray array];
+    
+    for ( int i= 0; i < 64; i++ ) {
+        [self.measureContent addObject:@""];
+    }
+    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView
             :(UICollectionView *)collectionView{
     /* Between 3 to 6 sections */
-    return 3 + arc4random_uniform(4);
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{
     /* Each section has between 10 to 15 cells */
-    return 10 + arc4random_uniform(6);
+    return 64;//10 + arc4random_uniform(6);
+}
+
+- (void)    collectionView:(UICollectionView *)collectionView
+  didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MyCollectionViewCell *selectedCell=
+    (MyCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    selectedCell.NoteName.text = @"?";
+    [self.measureContent replaceObjectAtIndex:indexPath.row
+                                   withObject:@"?"];
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -73,9 +92,8 @@ static NSString *kCollectionViewCellIdentifier = @"Cells";
     [collectionView
      dequeueReusableCellWithReuseIdentifier:kCollectionViewCellIdentifier
      forIndexPath:indexPath];
-    
-    cell.imageViewBackgroundImage.image = [self randomImage];
-    cell.imageViewBackgroundImage.contentMode = UIViewContentModeScaleAspectFit;
+    cell.NoteName.text = _measureContent[indexPath.row];
+    NSLog(@"measure:%d content:%@",indexPath.row,_measureContent[indexPath.row]);
     
     return cell;
     
